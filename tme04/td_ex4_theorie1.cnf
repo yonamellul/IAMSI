@@ -1,0 +1,15 @@
+c ex4 1ere theorie
+c
+p cnf 8 6
+1 2 3 0
+1 6 -7 0
+1 8 0
+-3 4 -6 0
+-5 6 7 0
+5 6 -8 0
+c
+c voici le resultat obtenu par glucose
+c s SATISFIABLE
+c v 1 -2 -3 4 -5 -6 7 -8 0
+c Ce n'est pas le même modèle que celui trouvé en td mais il satisfait tout de même la théorie 
+
