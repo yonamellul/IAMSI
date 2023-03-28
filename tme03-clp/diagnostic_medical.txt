@@ -1,0 +1,64 @@
+IAMSI 2023
+Yona MELLUL, 3800646
+Compte-rendu TME3
+
+
+Exercice 3:
+
+
+Question 1. Implémenter en CLIPS ce SBC pour réaliser un diagnostic médical.
+
+    cf. diagnostic_medical.clp
+
+
+Question 2. On considère les faits initiaux suivants : 
+- le patient a des tâches rouges ;
+- il a peu de boutons;
+- il ressent une sensation de froid ;
+- il a une forte fièvre ;
+- il a mal aux yeux ;
+- ses amygdales sont rouges ;
+- sa peau p`ele et elle est sèche.
+A l'aide du SBC implémenté, étudier les inférences réalisées à partir de ces faits. 
+En particulier, observer la trace des règles appliquées (watch rules) et des faits déduits (watch facts)
+puis lancer n itérations (run n) (avec n un entier naturel qui donne le nombre maximum de règles à déclencher, 
+au plus) en regardant à chaque étape (agenda).
+
+    On diagnostic la maladie de la rougeole.
+
+
+Question 3. Déterminer quelle est la stratégie de CLIPS pour choisir la règle à activer quand plusieurs règles sont applicables.
+
+    CLIPS choisit la règle activable la plus haute dans la pile des règles activables.
+    Si deux règles ont la même priorités, celle utilisée plus récemment sera mis au dessus dans la pile
+    Par contre, si un fait peut activer deux règles R1 et R2, leur position, l'une par rapport à l'autre, seront arbritaires. 
+
+    C'est la stratégie par défaut de CLIPS : depth. 
+
+Question 4. Clips procède-t-il par chaînage avant ou par chaînage arrière ?
+
+    CLIPS procède à un chainage avant. A partie de sa base de faits, il cherche tous les faits qu'il peut déduire de la base de règles.
+
+Question 5. Saturer la base de faits (run) pour déterminer tout ce qui peut être prouvé.
+
+    f-0     (initial-facts)
+    f-1     (taches_rouges patient)
+    f-2     (peu_boutons patient)
+    f-3     (sensation_froid patient)
+    f-4     (forte_fievre patient)
+    f-5     (yeux_douloureux patient)
+    f-6     (amygdales_rouges patient)
+    f-7     (peau_pele patient)
+    f-8     (peau_seche patient)
+    f-9     (signe_suspect patient)
+    f-10    (rougeole patient)
+    f-11    (douleur patient)
+    f-12    (etat_febrile patient)
+    f-13    (eruption_cutanee patient)
+    f-14    (exantheme patient)
+
+Question 6. Repérer la maladie diagnostiquée et, à la main, faire un chaînage arrière. 
+            Comparer le nombre de règles utilisées avec le nombre de règles utilisées par CLIPS.
+
+    En effectuant un chainage arrière à la main, on remarque qu'il n'est possible d'utiliser que 2 règles.
+    Cependant, CLIPS en utilise 9 (en comptant l'initialisation de la base de faits)
