@@ -1,3 +1,6 @@
+%IAMSI - Sorbonne Université
+%Yona MELLUL - 3800646
+
 sommet(1..7).
 arete(1,2).
 arete(1,3).

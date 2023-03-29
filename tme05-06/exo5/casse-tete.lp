@@ -15,7 +15,7 @@
 #hide a_droite/2.
 #hide a_cote/2.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Unaire %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 nationalite(britannique;suedois;danois;norvegien;allemand).
 
@@ -28,7 +28,7 @@ boisson(the;cafe;lait;biere;eau).
 
 cigarettes(pallmall;dunhill;blend;bluemaster;princess).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Binaires %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 1{a_anim(N, A) : animal(A)}1 :- nationalite(N).
 :- a_anim(N1, A), a_anim(N2, A), N1 != N2.
@@ -47,15 +47,15 @@ cigarettes(pallmall;dunhill;blend;bluemaster;princess).
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Utils %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Utils %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 a_gauche(P1,P2):- pos(P1), pos(P2), P2-P1 == 1.
 a_droite(P1, P2):- pos(P1), pos(P2), P1-P2 == 1.
 a_cote(P1, P2) :- a_gauche(P1, P2).
 a_cote(P1, P2) :- a_droite(P1,P2).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Faits de l'enoncé %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%1
+%%%%%%%%%%%%%%%%%%%%%%%%%% Faits de l'enoncé %%%%%%%%%%%%%%%%%%%%%%%%
+
 a_maison_coul(britannique, rouge).
 a_anim(suedois, chien).
 a_boisson(danois, the).
@@ -66,6 +66,9 @@ a_boisson(danois, the).
 
 :- a_maison_coul(N, verte), not a_boisson(N, cafe).
 %:- a_maison_coul(N1, verte), a_boisson(N2, cafe), N1 != N2.
+
+%IAMSI - Sorbonne Université
+%Yona MELLUL - 3800646
 
 :- a_cigs(N1, pallmall), a_anim(N2, oiseaux), N1 != N2.
 
